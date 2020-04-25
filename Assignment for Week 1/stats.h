@@ -1,5 +1,5 @@
-/******************************************************************************
- * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+/***************************************
+ * Copyright (C) 2017 by Alex Fosdick University of Colorado
  *
  * Redistribution, modification or use of this software in source or binary
  * forms is permitted as long as the files maintain this copyright. Users are 
@@ -7,81 +7,96 @@
  * software. Alex Fosdick and the University of Colorado are not liable for any
  * misuse of this material. 
  *
- *****************************************************************************/
-/**
- * @file stats.h 
- * @brief Definition for stats.c
+ ***************************************/
+/*
+ * @file	stats.h 
+ *
+ * @brief	Definition for stats.c
  *
  * Statistical tools for dataset analysis
  *
- * @author alexandergmzx
- * @date 2020-Jan-6
+ * @author	alexandergmzx
  *
+ * @date	2020-Jan-3
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/**
- * @brief A function that prints the statistics of an array including minimum, maximum, mean, and median.
+/*
+ * @fn 		print_statistics
  *
- * @param array The array of unsigned chars
+ * @brief	Prints the statistics of an array including minimum, maximum, mean, and median.
  *
+ * @param arr[] The array to analyze
+ *
+ * @note	This function needs the functions "sort_array", "find_minimum", "find_maximum", 
+ 				"find_mean", and "find_median" to work properly. 
  */
 void print_statistics(unsigned char arr[]);
 
 
-/** 
- * @brief Given an array of data and a length, prints the array to the screen
+/*
+ * @fn 		print_array
  *
- * @param array The array of unsigned chars
+ * @brief	Given an array of data and a length, prints the array to the screen
  *
+ * @param arr[]	The array to print
  */
 void print_array(unsigned char arr[]);
 
 
-/** 
- * @brief Given an array of data and a length, returns the median value
+/* 
+ * @fn 		find_median 
  *
- * @param array An array of unsigned chars
+ * @brief 	Given an array of data and a length, returns the median value
+ *
+ * @param arr[] The array to analyze
  *
  * @return median The median of the array
  */
 unsigned char find_median(unsigned char arr[]);
 
-/** 
- * @brief Given an array of data and a length, returns the mean
+/* 
+ * @fn 		find_mean 
  *
- * @param array An array of unsigned chars
+ * @brief	Given an array , returns the mean value
  *
- * @return mean The mean of the array
+ * @param arr[] The array to analyze
+ *
+ * @return mean The mean value of the array
  */
 unsigned char find_mean(unsigned char arr[]);
 
-/** 
- * @brief Given an array of data and a length, returns the maximum
+/* 
+ * @fn 		find_maximum
  *
- * @param array An array of unsigned chars
+ * @brief	Given an array of data, returns the maximum value inside it.
  *
- * @return max The max of the array
+ * @param arr[] The array to analyze
+ *
+ * @return max The maximum value in the array
  */
 unsigned char find_maximum(unsigned char arr[]);
 
-/** 
- * @brief Given an array of data and a length, returns the minimum
+/* 
+ * @fn 		find_minimum
  *
- * @param array An array of unsigned chars
+ * @brief	Given an array of data, returns the minimum value inside it.
  *
- * @return min The min of the array
+ * @param arr[] The array to analyze
+ *
+ * @return min The minimum value in the array
  */
 unsigned char find_minimum(unsigned char arr[]);
 
-/** 
- * @brief Given an array of data and a length, sorts the array from largest to smallest.
+/* 
+ * @fn 		sort_array
  *
- * (The zeroth Element should be the largest value, and the last element (n-1) should be the smallest value. )
+ * @brief	Given an array of data and a length, sorts the array from largest to smallest. 
+ 				(Descending order, meaning that the 0th Element should be the largest value,
+ 				and the last element (n-1) should be the smallest value. )
  *
- * @param array An array of unsigned chars
- *
+ * @param arr[]	The array to sort
  */
 void sort_array(unsigned char arr[]);
 
