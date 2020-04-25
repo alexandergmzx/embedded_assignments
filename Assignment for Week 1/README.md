@@ -1,5 +1,9 @@
 # Assignment for Week 1: **Embedded System Development Components**
 
+@author Alexander Gómez
+
+@date 2019-December-16
+
 # Overview
 
 This assignment is about learning to:
@@ -12,7 +16,7 @@ The assignmet was to declare, define and implement functions that, given an arra
 
 The compilation and running can be done with these commands:
 ```
-gcc main.c stats.c -o main.out -std=c99
+gcc main.c stats.c -o main.out
 ./main.out
 ```
 

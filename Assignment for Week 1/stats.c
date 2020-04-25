@@ -23,7 +23,9 @@
  * @date	2020-Jan-3
  */
 
+
 #include <stdio.h>
+#include <string.h>
 #include "stats.h"
 
 /*
@@ -40,24 +42,30 @@
  * @note	This function needs the functions "sort_array", "find_minimum", "find_maximum", 
  				"find_mean", and "find_median" to work properly. 
  */
-#include "stats.h"
-
 void print_statistics(unsigned char arr[]){
 
 	sort_array(arr);
+
 	printf("\nmedian: \t%d\n", find_median(arr));
 	
-	printf("mean: \t%d\n", find_mean(arr));
+	printf("mean:	\t%d\n", find_mean(arr));
 	
-	printf("maximum: %d\n", find_maximum(arr));
+	printf("maximum:\t%d\n", find_maximum(arr));
 	
-	printf("minumum: %d\n", find_minimum(arr));	
+	printf("minimum:\t%d\n", find_minimum(arr));	
 	
 }
 
+/*
+ * @fn 		print_array
+ *
+ * @brief	Given an array of data and a length, prints the array to the screen
+ *
+ * @param arr[]	The array to print
+ */
 void print_array(unsigned char arr[]){
-	for(int i = 0; i < sizeof(arr)/8; i++){
-		for(int j = 0; j < sizeof(arr)/5; j++){
+	for(int i = 0; i < strlen(arr)/8; i++){
+		for(int j = 0; j < strlen(arr)/5; j++){
 		       printf("%3d  ", arr[8*i+j]);
 		}
  		printf("\n");
@@ -65,30 +73,81 @@ void print_array(unsigned char arr[]){
 	printf("\n");
 }
 
+/* 
+ * @fn 		find_median 
+ *
+ * @brief 	Given an array of data and a length, returns the median value
+ *
+ * @param arr[] The array to analyze
+ *
+ * @return median The median of the array
+ *
+ * @note This fuction needs the function sort_array to be executed before, in order to work properly
+ */
 unsigned char find_median(unsigned char arr[]){
-	return arr[(sizeof(arr)-1)/2];
+	return arr[(strlen(arr)-1)/2];
 }
 
+/* 
+ * @fn 		find_mean 
+ *
+ * @brief	Given an array , returns the mean value
+ *
+ * @param arr[] The array to analyze
+ *
+ * @return mean The mean value of the array
+ */
 unsigned char find_mean(unsigned char arr[]){
 	unsigned int sum = 0;
-	for(int i = 0; i < sizeof(arr); i++){
+	for(int i = 0; i < strlen(arr); i++){
 		sum += arr[i];	
 	}
-	return (unsigned char)( sum / sizeof(arr) );
+	return (unsigned char)( sum / (float)strlen(arr) );
 }
 
+/* 
+ * @fn 		find_maximum
+ *
+ * @brief	Given an array of data, returns the maximum value inside it.
+ *
+ * @param arr[] The array to analyze
+ *
+ * @return max The maximum value in the array
+ *
+ * @note This fuction needs the function sort_array to be executed before, in order to work properly
+ */
 unsigned char find_maximum(unsigned char arr[]){
-	return arr[sizeof(arr)-1];
+	return arr[strlen(arr)-1];
 }
 
+/* 
+ * @fn 		find_minimum
+ *
+ * @brief	Given an array of data, returns the minimum value inside it.
+ *
+ * @param arr[] The array to analyze
+ *
+ * @return min The minimum value in the array
+ *
+ * @note This fuction needs the function sort_array to be executed before, in order to work properly
+ */
 unsigned char find_minimum(unsigned char arr[]){
 	return arr[0];
 }
 
+/* 
+ * @fn 		sort_array
+ *
+ * @brief	Given an array of data and a length, sorts the array from largest to smallest. 
+ 				(Descending order, meaning that the 0th Element should be the largest value,
+ 				and the last element (n-1) should be the smallest value. )
+ *
+ * @param arr[]	The array to sort
+ */
 void sort_array(unsigned char arr[]){
 	unsigned char tmp;
-	for(int i = 0; i < sizeof(arr); i++){
-		for(int j = i; j < sizeof(arr); j++){
+	for(int i = 0; i < strlen(arr); i++){
+		for(int j = i; j < strlen(arr); j++){
 			if(arr[j] < arr[i]){
 				tmp = arr[j];
 				arr[j] = arr[i];
