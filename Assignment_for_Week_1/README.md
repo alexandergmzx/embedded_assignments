@@ -1,4 +1,4 @@
-# Assignment for Week 1: **Embedded System Development Components**
+# Assignment for Week 1: _Embedded System Development Components_
 
 @author Alexander Gómez
 
@@ -6,11 +6,11 @@
 
 # Overview
 
-This assignment is about learning to:
+This assignment is about learning:
 
-- "Version control" systems with Github
-- "C Standardization and Team Coding Standards" (Jack Ganssle's firmware development standard)
-- GCC (GNU compiler Colection) introduction
+- __"Version control"__ systems with Github
+- __"C Standardization and Team Coding Standards"__ (Jack Ganssle's firmware development standard)
+- GCC (GNU Compiler Colection) introduction
 
 The assignmet was to declare, define and implement functions that, given an array, prints some statistics of the content. Then the files should be compiled with the GCC. 
 

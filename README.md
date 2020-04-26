@@ -4,10 +4,10 @@ This repository compiles all the work done and the knowledge learned from Alex F
 
 # Week 1
 
-The assigment for week 1 (module 1: **Embedded System Development Components**) can be found in the "Assignment for Week 1" folder. This assignment is about learning to:
+The assigment for week 1 (module 1: **Embedded System Development Components**) can be found in the "Assignment for Week 1" folder. This assignment is about learning:
 
 - Version control systems
 - Coding Standards (Jack Ganssle's firmware development standard)
-- GCC (GNU compiler Colection) introduction
+- GCC (GNU Compiler Colection) introduction
 
 **More TBD.**
