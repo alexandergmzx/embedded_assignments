@@ -30,6 +30,16 @@ This folder contains:
 
 Additionaly this folder contains a __makefile__, which can ease the compilation, gives some information that will be learned later.
 
+Try the makefile with:
+```
+make build
+./stats.out
+```
+
+Erase all the files created by the makefile with:
+```
+make clean
+```
 # Reference cards (Cheat sheets)
 
 Some Cheat sheets were used for this assignment:
