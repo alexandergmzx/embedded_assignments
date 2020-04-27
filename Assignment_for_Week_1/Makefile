@@ -16,13 +16,13 @@
 # Date:   January 13, 2019
 #
 #------------------------------------------------------------------------------
-TARGET = main
+MAIN = main
 
-GEN_FLAGS = \
-	    -Wall \
-	    -g 
+TARGET = stats
 
-SRCS = $(TARGET).c
+GEN_FLAGS = -g -v 
+
+SRCS = $(TARGET).c $(MAIN).c
 
 CC = gcc
 CFLAGS = $(GEN_FLAGS)
