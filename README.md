@@ -4,7 +4,7 @@ This repository compiles all the work done and the knowledge learned from Alex F
 
 ## Week 1
 
-The assigment for week 1 (module 1: **Embedded System Development Components**) can be found in the "Assignment for Week 1" folder. This assignment is about learning:
+The assigment for week 1 (module 1: **Embedded System Development Components**) can be found in the "Assignment\_for_Week_1" folder. This assignment is about learning:
 
 - Version control systems
 - Coding Standards (Jack Ganssle's firmware development standard)
@@ -12,7 +12,7 @@ The assigment for week 1 (module 1: **Embedded System Development Components**) 
 
 ## Week 2
 
-The assignment for the week 2 (module 2: **Compilation with GCC and GNU Make**) can be found in the ""Assignment for Week 1" folder.
+The assignment for the week 2 (module 2: **Compilation with GCC and GNU Make**) can be found in the "Assignment\_for_Week_2" folder.
 This assignment is about learning:
 
 - Compiling and Invoking GCC
@@ -22,6 +22,12 @@ This assignment is about learning:
 
 ## Week 3
 
+The assignment for the week 3 (module 3: **Memory Types, Segments and Management**) can be found in the "Assignment\_for_Week_3" folder.
+This assignment is about learning:
+
+- Memory Organization
+- Memory Segments
+- Symbol tables
 ...
 
 

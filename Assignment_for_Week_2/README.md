@@ -20,8 +20,7 @@ This folder contains:
 - _msp432p401r.lds_ linker file
 - **src** folder
   - **_Makefile_** The elaborated mutiplatform makefile
-  - _sou
-rces.mk_ Aids the Makefile specifying the sources and includes to compile 
+  - _sources.mk_ Aids the Makefile specifying the sources and includes to compile 
   - _main.c_ Main program to compile
   - _memory.c_ Memory Functions definition file
   - Other files, specifically for the MSP432 compilation
@@ -33,16 +32,16 @@ For using this application you have to move to the **_src_** directory.
 
 Use: make \[TARGET] \[PLATFORM-OVERRIDES]
 
-With the possible platforms being the **HOST** Unix Computer and the **MSP432** Microcontroller.
+The possible Platforms are the **HOST** Unix Computer and the **MSP432** Microcontroller.
 
 ### Targets
 
 This **Makefile** can build 4 kinds of files:
 
-- **<FILE>.i** - Builds a <FILE>.i Preprocessed file
-- **<FILE>.asm** - Dumps <FILE>.asm Assembly file
-- **<FILE>.d** - Builds <FILE>.d Dependency file
-- **<FILE>.o** - Builds a <FILE>.o Object file
+- **\<FILE>.i** - Builds a <FILE>.i Preprocessed file
+- **\<FILE>.asm** - Dumps <FILE>.asm Assembly file
+- **\<FILE>.d** - Builds <FILE>.d Dependency file
+- **\<FILE>.o** - Builds a <FILE>.o Object file
 
 Example - This dumps the Assembly code of memory.c for the MSP432:
 ```
@@ -54,7 +53,7 @@ Other Targets:
 - **build** - Builds all object files in project (links as well) and the output file
 - **clean** - Removes all generated files
 
-Example - Make the output file, try it in the unix computer then remove the generated files:
+Example - Make the output file, try it in the unix computer then remove the generated files (The platform is not specified because the host is teh default platform):
 ```
 make build
 ./c1m2.out
