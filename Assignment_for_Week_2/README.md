@@ -66,4 +66,5 @@ Some References checked for this assignment:
 - [Github Readme Basic writing and formatting syntax](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
 - [GNU Make book through examples](https://makefiletutorial.com/)
 - [Cheat Sheet by bavo.van.achte](https://cheatography.com/bavo-van-achte/cheat-sheets/gnumake/)
+- [Cheat Sheet by eduardo lezcano](http://eduardolezcano.com/wp-content/uploads/2016/06/make_cheatsheet.pdf)
 
