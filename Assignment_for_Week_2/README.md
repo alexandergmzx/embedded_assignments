@@ -19,11 +19,11 @@ This folder contains:
 
 - _msp432p401r.lds_ linker file
 - **src** folder
-  - **_Makefile_** The elaborated mutiplatform makefile
+  - _Makefile_ The elaborated mutiplatform makefile
   - _sources.mk_ Aids the Makefile specifying the sources and includes to compile 
   - _main.c_ Main program to compile
   - _memory.c_ Memory Functions definition file
-  - Other files, specifically for the MSP432 compilation
+  - Other files, for the MSP432 files compilation
 - **include** folder. Contains the drivers for the MSP432
 
 ## Running the makefile
@@ -38,10 +38,10 @@ The possible Platforms are the **HOST** Unix Computer and the **MSP432** Microco
 
 This **Makefile** can build 4 kinds of files:
 
-- **\<FILE>.i** - Builds a <FILE>.i Preprocessed file
-- **\<FILE>.asm** - Dumps <FILE>.asm Assembly file
-- **\<FILE>.d** - Builds <FILE>.d Dependency file
-- **\<FILE>.o** - Builds a <FILE>.o Object file
+- **\<FILE>.i** - Builds a \<FILE>.i Preprocessed file
+- **\<FILE>.asm** - Dumps \<FILE>.asm Assembly file
+- **\<FILE>.d** - Builds \<FILE>.d Dependency file
+- **\<FILE>.o** - Builds a \<FILE>.o Object file
 
 Example - This dumps the Assembly code of memory.c for the MSP432:
 ```

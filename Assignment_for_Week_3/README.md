@@ -12,4 +12,7 @@ This assignment is about learning:
 - **Memory Segments**
 - **Symbol tables**
 
+## References for this part of the course
+
+- [nm Binary Utility](https://sourceware.org/binutils/docs/binutils/nm.html)
 
