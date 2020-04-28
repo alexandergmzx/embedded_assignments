@@ -9,7 +9,7 @@
 #
 #*****************************************************************************
 
-#------------------------------------------------------------------------------
+##############################################################################
 # Simple make file to support two build platforms
 #
 # Use: make [TARGET] [PLATFORM-OVERRIDES]
@@ -19,99 +19,113 @@
 #      <FILE>.i - Builds a <FILE>.i preprocessed file
 #      <FILE>.asm - Dumps <FILE>.asm assembly file
 #      <FILE>.d - Builds <FILE>.d dependency file
-#      compile-all - Compiles all source files in project
+#      compile-all - Compiles all source files in project, but does not link.
 #      build - Builds all object files in project (links as well)
 #      clean - Removes all generated files
 #
 # Platform Overrides:
 #      HOST - Default platform
-#      MSP342 - Target cross-compiled platform
+#      MSP432 - Target cross-compiled platform
 #
-# @author alexandergmzx
-# @date 2020-December-26
+# Example : make build PLATFORM=MSP432 		
+#			# This builds all the object files for the MSP432 
 #
-#------------------------------------------------------------------------------
+# @author	alexandergmzx
+# @date 	2020-December-26
+#
+##############################################################################
+
 include sources.mk
 
 # Platform Overrides
 PLATFORM = HOST
 
-# General flags for both platforms
-GEN_FLAGS = \
-	    -Wall \
-	    -Werror \
-	    -g \
-	    -O0 \
-	    -std=c99
-
 TARGET = c1m2
 
+# General flags for both platforms
+GEN_FLAGS = -Wall \
+	-Werror \
+	-g \
+	-O0 \
+	-std=c99
+
+# Check for platform
 ifeq ($(PLATFORM), MSP432)
 	# Architectures Specific Flags
-	LINKER_FILE = -T msp432p401r.lds 
-	CPU = cortex-m4
-	ARCH = armv7e-m
-	SPECS = nosys.specs
+	LINKER_FILE = msp432p401r.lds 
+	CPU = cortex-m4 		
+	ARCH = armv7e-m 		
+	SPECS = nosys.specs 	
 	EXTRA = -mthumb \
 		-mfloat-abi=hard \
 		-mfpu=fpv4-sp-d16
 
 	# Compiler Flags and Defines
-	CC = arm-none-eabi-gcc
-	LD = arm-none-eabi-ld
-	CFLAGS = $(GEN_FLAGS) $(EXTRA) -mcpu=$(CPU) -march=$(ARCH) --specs=$(SPECS)
-	LDFLAGS = -Wl,-Map=$(TARGET).map -T -L ../ $(LINKER_FILE)
-	CPPFLAGS = -DMSP432 $(INCLUDES)
+	CC = arm-none-eabi-gcc				# Compiler
+	LD = arm-none-eabi-ld				# Loader
+	CFLAGS = $(GEN_FLAGS) $(EXTRA) \
+			-mcpu=$(CPU) \
+			-march=$(ARCH) \
+			--specs=$(SPECS)			# Compiler Flags
+
+	CPPFLAGS = -DMSP432 $(INCLUDES)		# C-PreProcessor Flags
+
+	LDFLAGS = -Wl,-Map=$(TARGET).map\
+		  -L -T../$(LINKER_FILE)	# Loader Flags
+										# This also generates the Map file for the full build
+
 
 	# Architecture specific source codes
-	SOURCE = \
-		 main.c \
-		 memory.c \
-		 interrupts_msp432p401r_gcc.c \
-		 startup_msp432p401r_gcc.c \
-		 system_msp432p401r.c
+	SOURCE = main.c \
+			 memory.c \
+			 startup_msp432p401r_gcc.c \
+			 system_msp432p401r.c \
+			 interrupts_msp432p401r_gcc.c 
 	
-	SIZE = arm-none-eabi-size
+	SIZE = arm-none-eabi-size			
 
 else
-	# Complier Flags and Defines
-	CC = gcc
-	CFLAGS = $(GEN_FLAGS)
-	CPPFLAGS = -DHOST $(INCLUDES)
-	LDFLAGS = -Wl,-Map=$(TARGET).map
+	# Compiler Flags and Defines
+	CC = gcc 
+	# GCC includes a preprocessor, Compiler, linker and loader.
+	CFLAGS = $(GEN_FLAGS)			# Compiler Flags
+	CPPFLAGS = -DHOST $(INCLUDES)		# C-PreProcessor Flags
+	LDFLAGS = -Wl,-Map=$(TARGET).map 	# Loader Flags, This also generates the -Map file for the full build
 	SIZE = size
 endif
 
-OBJS = $(SRCS:.c=.o)
-DEPS = $(SRCS:.c=.d)
-ASMS = $(SRCS:.c=.asm)
-PREP = $(SRCS:.c=.i)
+# Pattern Matching - Associate source files with:
+OBJS = $(SRCS:.c=.o)	# Object files
+DEPS = $(SRCS:.c=.d)	# Dependency files
+ASMS = $(SRCS:.c=.asm)	# Assembly files
+PREP = $(SRCS:.c=.i)	# Preprocessed files
 
+# Dependency Files for each source file 
+%.d: %.c
+	$(CC) -E -M $< $(CPPFLAGS) -o $@
+# Preprocessed output of implementation files
+%.i: %.c
+	$(CC) -E $< $(CPPFLAGS) -o $@
+# Assembly output files
+%.asm: %.c
+	$(CC) -S $< $(CFLAGS) $(CPPFLAGS) -o $@
+# Individual object files
 %.o: %.c
 	$(CC) -c $< $(CFLAGS) $(CPPFLAGS) -o $@
 
-%.asm: %.c
-	$(CC) -S $< $(CFLAGS) $(CPPFLAGS) -o $@
-
-%.i: %.c
-	$(CC) -E $< $(CPPFLAGS) -o $@
-
-%.d: %.c
-	$(CC) -E -M $< $(CPPFLAGS) -o $@
-
+# Special target names/non-file targets
 .PHONY: compile-all
 compile-all: $(OBJS)
 
 .PHONY: build
 build: $(TARGET).out
 
+.PHONY: clean
+
 $(TARGET).out: $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@
 	$(SIZE) $@
 
-.PHONY: clean
 clean:
 	rm -f $(OBJS) $(DEPS) $(ASMS) $(PREP) $(TARGET).out $(TARGET).map 
-
-
 

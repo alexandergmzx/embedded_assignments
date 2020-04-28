@@ -12,6 +12,17 @@ The assigment for week 1 (module 1: **Embedded System Development Components**) 
 
 ## Week 2
 
+The assignment for the week 2 (module 2: **Compilation with GCC and GNU Make**) can be found in the ""Assignment for Week 1" folder.
+This assignment is about learning:
+
+- Compiling and Invoking GCC
+- Build Systems using GNU Toolsets
+- C-Make and makefile creation
+- GNU Binary Utilities
+
+## Week 3
+
 ...
+
 
 **More TBD.**
