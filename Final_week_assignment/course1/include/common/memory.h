@@ -22,129 +22,130 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
+#include <stdint.h>
 #define SIZE_OF_WORD	(sizeof(int))
 
 /**
- * @brief 		Moves the bytes from source to destination location
+ * @brief 			Moves the bytes from source to destination location
  *
  * This function takes two byte pointers (one source and one destination) and a length of bytes 
  * to move from the source location to the destination.
  *
- * @param src 	Pointer to source location
- * @param dst  	Pointer to destination location
- * @param length Length of bytes to move from the source to the destination.
+ * @param src 		Pointer to source location
+ * @param dst  		Pointer to destination location
+ * @param length 	Length of bytes to move from the source to the destination.
  *
- * @return		The pointer to the destination (dst).
+ * @return			The pointer to the destination (dst).
  */
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
 
 
 /**
- * @brief 		Copies the bytes from source to destination location
+ * @brief 			Copies the bytes from source to destination location
  *
  * This function takes two byte pointers (one source and one destination) and a length of bytes
  * to copy from the source location to the destination.
  *
- * @param src 	Pointer to source location
- * @param dst 	Pointer to destination location
- * @param length Length of bytes to copy from the location to the destination.
+ * @param src 		Pointer to source location
+ * @param dst 		Pointer to destination location
+ * @param length 	Length of bytes to copy from the location to the destination.
  *
- * @return		The pointer to the destination (dst).
+ * @return			The pointer to the destination (dst).
  */
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
 
 
 /**
- * @brief 		Sets all locations of pointed memory to a given value.
+ * @brief 			Sets all locations of pointed memory to a given value.
  *
  * This function takes a pointer to a source memory location, a length in bytes and
  * set all locations of that memory to a given value.
  *
- * @param src 	Pointer to source location
- * @param length Length in bytes
- * @param value Value that pointed memory should obtain
+ * @param src 		Pointer to source location
+ * @param length 	Length in bytes
+ * @param value 	Value that pointed memory should obtain
  *
- * @return		The pointer to the source (src).
+ * @return			The pointer to the source (src).
  */
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
 
 
 /**
- * @brief 		Zero out all of the pointed memory
+ * @brief 			Zero out all of the pointed memory
  *
  * This function takes a pointer to a memory location,
  * a length in bytes and zero out all of the memory.
  *
- * @param src 	Pointer to source location
- * @param length Length in bytes
+ * @param src 		Pointer to source location
+ * @param length 	Length in bytes
  *
- * @return		The pointer to the source (src).
+ * @return			The pointer to the source (src).
  */
 uint8_t * my_memzero(uint8_t * src, size_t length);
 
 
 /**
- * @brief 		Reverses the order of all of the bytes.
+ * @brief 			Reverses the order of all of the bytes.
  *
  * This function takes a pointer to a memory location and a length in bytes and
  * reverse the order of all of the bytes.
  *
- * @param src 	Pointer to source location
- * @param length Length in bytes
+ * @param src 		Pointer to source location
+ * @param length 	Length in bytes
  *
- * @return		The pointer to the source (src).
+ * @return			The pointer to the source (src).
  */
 uint8_t * my_reverse(uint8_t * src, size_t length);
 
 
 /**
- * @brief 		Allocates number of words in dynamic memory
+ * @brief 			Allocates number of words in dynamic memory
  *
  * This function takes number of words to allocate in dynamic memory
  *
- * @param length Length in words
+ * @param length 	Length in words
  *
- * @return		The pointer to memory if successful, Null Pointer if not successful
+ * @return			The pointer to memory if successful, Null Pointer if not successful
  */
 int32_t * reserve_words(size_t length);
 
 
 /**
- * @brief		Free pointed dynamic memory
+ * @brief			Free pointed dynamic memory
  *
  * This function free a dynamic memory allocation by providing
  * the pointer src to the function
  *
- * @param src 	Pointer to source location
+ * @param src 		Pointer to source location
  *
- * @return 		void
+ * @return 			void
  */
 void free_words(uint32_t * src);
 
 /**
- * @brief Sets a value of a data array 
+ * @brief 			Sets a value of a data array 
  *
  * Given a pointer to a char data set, this will set a provided
  * index into that data set to the value provided.
  *
- * @param ptr Pointer to data array
- * @param index Index into pointer array to set value
- * @param value value to write the the location
+ * @param ptr 		Pointer to data array
+ * @param index 	Index into pointer array to set value
+ * @param value 	value to write the the location
  *
- * @return void.
+ * @return 			void.
  */
 void set_value(char * ptr, unsigned int index, char value);
 
 /**
- * @brief Clear a value of a data array 
+ * @brief 			Clear a value of a data array 
  *
  * Given a pointer to a char data set, this will clear a provided
  * index into that data set to the value zero.
  *
- * @param ptr Pointer to data array
- * @param index Index into pointer array to set value
+ * @param ptr 		Pointer to data array
+ * @param index 	Index into pointer array to set value
  *
- * @return void.
+ * @return 			void.
  */
 void clear_value(char * ptr, unsigned int index);
 
@@ -154,10 +155,10 @@ void clear_value(char * ptr, unsigned int index);
  * Given a pointer to a char data set, this will read the provided
  * index into that data set and return the value.
  *
- * @param ptr Pointer to data array
- * @param index Index into pointer array to set value
+ * @param ptr 		Pointer to data array
+ * @param index 	Index into pointer array to set value
  *
- * @return Value to be read.
+ * @return 			Value to be read.
  */
 char get_value(char * ptr, unsigned int index);
 
