@@ -30,16 +30,19 @@ int8_t test_data1() {
   uint32_t digits;
   int32_t value;
 
-  PRINTF("\ntest_data1();\n");
+  PRINTF("\ntest_data1()::\n");
   ptr = (uint8_t*) reserve_words( DATA_SET_SIZE_W );
 
   if (! ptr )
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
   }
 
-  digits = my_itoa( num, ptr, BASE_16);   
-  value = my_atoi( ptr, digits, BASE_16);
+  digits = my_itoa( num, ptr, 16);   
+  value = my_atoi( ptr, digits, 16);
   #ifdef VERBOSE
   PRINTF("  Initial number: %d\n", num);
   PRINTF("  Final Decimal number: %d\n", value);
@@ -48,6 +51,9 @@ int8_t test_data1() {
 
   if ( value != num )
   {
+	#ifdef VERBOSE
+	PRINTF("Error2: not equal\n");
+	#endif
     return TEST_ERROR;
   }
   return TEST_NO_ERROR;
@@ -64,11 +70,14 @@ int8_t test_data2() {
 
   if (! ptr )
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
   }
 
-  digits = my_itoa( num, ptr, BASE_10);
-  value = my_atoi( ptr, digits, BASE_10);
+  digits = my_itoa( num, ptr, 10);
+  value = my_atoi( ptr, digits, 10);
   #ifdef VERBOSE
   PRINTF("  Initial Decimal number: %d\n", num);
   PRINTF("  Final Decimal number: %d\n", value);
@@ -77,6 +86,9 @@ int8_t test_data2() {
 
   if ( value != num )
   {
+	#ifdef VERBOSE
+  	PRINTF("Error2: function error\n");
+	#endif
     return TEST_ERROR;
   }
   return TEST_NO_ERROR;
@@ -94,7 +106,11 @@ int8_t test_memmove1() {
 
   if (! set ) 
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
+
   }
   
   ptra = &set[0];
@@ -114,6 +130,9 @@ int8_t test_memmove1() {
   {
     if (set[i + 16] != i)
     {
+	  #ifdef VERBOSE
+  	  PRINTF("Error2: function error\n");
+	  #endif
       ret = TEST_ERROR;
     }
   }
@@ -134,6 +153,9 @@ int8_t test_memmove2() {
 
   if (! set )
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
   }
   ptra = &set[0];
@@ -152,6 +174,9 @@ int8_t test_memmove2() {
   {
     if (set[i + 8] != i)
     {
+	  #ifdef VERBOSE
+  	  PRINTF("Error2: function error\n");
+	  #endif
       ret = TEST_ERROR;
     }
   }
@@ -172,6 +197,9 @@ int8_t test_memmove3() {
 
   if (! set ) 
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
   }
   ptra = &set[8];
@@ -191,6 +219,9 @@ int8_t test_memmove3() {
   {
     if (set[i] != (i + 8))
     {
+	  #ifdef VERBOSE
+  	  PRINTF("Error2: function error\n");
+	  #endif
       ret = TEST_ERROR;
     }
   }
@@ -213,6 +244,9 @@ int8_t test_memcopy() {
 
   if (! set ) 
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
   }
   ptra = &set[0];
@@ -231,6 +265,9 @@ int8_t test_memcopy() {
   {
     if (set[i+16] != i)
     {
+	  #ifdef VERBOSE
+  	  PRINTF("Error2: function error\n");
+	  #endif
       ret = TEST_ERROR;
     }
   }
@@ -251,6 +288,9 @@ int8_t test_memset()
   set = (uint8_t*)reserve_words(MEM_SET_SIZE_W);
   if (! set )
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
   }
   ptra = &set[0];
@@ -273,10 +313,16 @@ int8_t test_memset()
   {
     if (set[i] != 0xFF)
     {
+	  #ifdef VERBOSE
+  	  PRINTF("Error2: function error\n");
+	  #endif
       ret = TEST_ERROR;
     }
     if (set[16 + i] != 0)
     {
+	  #ifdef VERBOSE
+  	  PRINTF("Error2: function error\n");
+	  #endif
       ret = TEST_ERROR;
     }
   }
@@ -300,6 +346,9 @@ int8_t test_reverse()
   copy = (uint8_t*)reserve_words(MEM_SET_SIZE_W);
   if (! copy )
   {
+	#ifdef VERBOSE
+  	PRINTF("Error1: null pointer\n");
+	#endif
     return TEST_ERROR;
   }
   
@@ -313,6 +362,9 @@ int8_t test_reverse()
   {
     if (set[i] != copy[MEM_SET_SIZE_B - i - 1])
     {
+	  #ifdef VERBOSE
+  	  PRINTF("Error2: function error\n");
+	  #endif
       ret = TEST_ERROR;
     }
   }
