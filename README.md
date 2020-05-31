@@ -1,5 +1,6 @@
 # Assigments solved with the course
-=============================================================
+
+==========================================
 
 This repository compiles all the work done and the knowledge learned from Alex Fosdick, ECE professor from the University of Colorado Boulder
 
@@ -11,7 +12,6 @@ The work done for week 1 (module 1: **Embedded System Development Components**) 
  - GCC (GNU Compiler Colection) introduction
 
 ## Week 2
-========================
 The work done for the week 2 (module 2: **Compilation with GCC and GNU Make**) can be found in the "Assignment\_for_Week_2" folder.
 This assignment is about learning:
 
