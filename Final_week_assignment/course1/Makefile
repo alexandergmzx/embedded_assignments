@@ -12,7 +12,7 @@
 ##############################################################################
 # Simple make file to support two build platforms
 #
-# Use: make [TARGET] [PLATFORM-OVERRIDES]
+# Use: make [TARGET] [PLATFORM-OVERRIDES] [FUNCTION] [DEBUG]
 #
 # Build Targets:
 #      <FILE>.o - Builds a <FILE>.o object file
@@ -24,14 +24,15 @@
 #      clean - Removes all generated files
 #
 # Platform Overrides:
-#      HOST - Default platform
-#      MSP432 - Target cross-compiled platform
+#      HOST - Default platform, compile for the host computer.
+#      MSP432 - Target cross-compiled platform.
 #
-# Example : make build PLATFORM=MSP432 		
-#			# This builds all the object files for the MSP432 
+# Example : make build PLATFORM=MSP432 FUNCTION=COURSE1 DEBUG=VERBOSE	
+#			# This builds all the object files for the MSP432, 
+			#	activates the course1() function and prints the debug messages. 
 #
-# @author	alexandergmzx
-# @date 	2020-December-26
+# @author	Alexander Gómez
+# @date 	2020-May-1
 #
 ##############################################################################
 
@@ -39,14 +40,21 @@ include sources.mk
 
 # Platform Overrides
 PLATFORM = HOST
+# Activate the function
+FUNCTION = COURSE1
+# Set the debug to NO
+DEBUG = NODEBUG
+# Target.out 
+TARGET = c1m4
 
-TARGET = c1m2
-
-# General flags for both platforms
-GEN_FLAGS = -Wall \
+# General GCC compiler flags for both platforms
+CFLAGS = -Wall \
+	-Werror \
 	-g \
 	-O0 \
 	-std=c99
+
+CPPFLAGS = -D$(FUNCTION) -D$(DEBUG) -MMD -MP
 
 # Check for platform
 ifeq ($(PLATFORM), MSP432)
@@ -54,24 +62,28 @@ ifeq ($(PLATFORM), MSP432)
 	LINKER_FILE = msp432p401r.lds 
 	CPU = cortex-m4 		
 	ARCH = armv7e-m 		
-	SPECS = nosys.specs 	
-	EXTRA = -mthumb \
-		-mfloat-abi=hard \
-		-mfpu=fpv4-sp-d16
+	SPECS = nosys.specs 
+
+	FLOATABI = hard
+	FPU = fpv4-sp-d16
+
+	ISAFLAG = -mthumb 
 
 	# Compiler Flags and Defines
 	CC = arm-none-eabi-gcc				# Compiler
 	LD = arm-none-eabi-ld				# Loader
-	CFLAGS = $(GEN_FLAGS) $(EXTRA) \
-			-mcpu=$(CPU) \
-			-march=$(ARCH) \
-			--specs=$(SPECS)			# Compiler Flags
+	CFLAGS += $(ISAFLAG) \
+		-mcpu=$(CPU) \
+		-march=$(ARCH) \
+		--specs=$(SPECS) \
+		-mfloat-abi=$(FLOATABI) \
+		-mfpu=$(FPU)				# Compiler Flags
 
-	CPPFLAGS = -DMSP432 $(INCLUDES)		# C-PreProcessor Flags
+	CPPFLAGS += -DMSP432 $(INCLUDES)		# C-PreProcessor Flags
 
 	LDFLAGS = -Wl,-Map=$(TARGET).map\
 		  -L -T../$(LINKER_FILE)	# Loader Flags
-										# This also generates the Map file for the full build
+	# This also generates the Map file for the full build
 
 
 	# Architecture specific source codes
@@ -81,16 +93,19 @@ ifeq ($(PLATFORM), MSP432)
 			 system_msp432p401r.c \
 			 interrupts_msp432p401r_gcc.c 
 	
-	SIZE = arm-none-eabi-size			
+	SIZE = arm-none-eabi-size	
+    OBJDMP = arm-none-eabi-objdump		
 
 else
 	# Compiler Flags and Defines
 	CC = gcc 
 	# GCC includes a preprocessor, Compiler, linker and loader.
-	CFLAGS = $(GEN_FLAGS)			# Compiler Flags
-	CPPFLAGS = -DHOST $(INCLUDES)		# C-PreProcessor Flags
-	LDFLAGS = -Wl,-Map=$(TARGET).map 	# Loader Flags, This also generates the -Map file for the full build
+	# CFLAGS = $(GEN_FLAGS)			# Compiler Flags
+	CPPFLAGS += -DHOST $(INCLUDES)		# C-PreProcessor Flags
+	LDFLAGS = -Wl,-Map=$(TARGET).map 	# Loader Flags, 
+	# This also generates the -Map file for the full build
 	SIZE = size
+    	OBJDMP = objdump
 endif
 
 # Pattern Matching - Associate source files with:
@@ -123,8 +138,11 @@ build: $(TARGET).out
 
 $(TARGET).out: $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@
-	$(SIZE) $@
+	$(SIZE) $< $@
+
+$(TARGET).asm: build
+	$(OBJDMP) --disassemble $(TARGET).out > $(TARGET).asm
 
 clean:
-	rm -f $(OBJS) $(DEPS) $(ASMS) $(PREP) $(TARGET).out $(TARGET).map 
+	rm -f $(OBJS) $(DEPS) $(ASMS) $(PREP) $(TARGET).out $(TARGET).map $(TARGET).asm
 
