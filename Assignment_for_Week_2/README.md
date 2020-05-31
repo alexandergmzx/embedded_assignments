@@ -53,7 +53,7 @@ Other Targets:
 - **build** - Builds all object files in project (links as well) and the output file
 - **clean** - Removes all generated files
 
-Example - Make the output file, try it in the unix computer then remove the generated files (The platform is not specified because the host is teh default platform):
+Example - Make the output file, try it in the unix computer then remove the generated files (The platform is not specified because the host is the default platform):
 ```
 make build
 ./c1m2.out

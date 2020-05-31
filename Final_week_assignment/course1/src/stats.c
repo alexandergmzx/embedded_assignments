@@ -29,7 +29,7 @@
 #include "stats.h"
 
 // int main(void) {
-//   //#ifdef VERBOSE  
+// //#ifdef VERBOSE  
 //   /* Data Set array */
 //   unsigned char test[40] = { 34, 201, 190, 154,   8, 194,   2,   6,
 //                           114, 88,   45,  76, 123,  87,  25,  23,
@@ -50,7 +50,9 @@
 // }
 
 void print_statistics(unsigned char arr[], unsigned int length){
+
 	#ifdef VERBOSE
+
 	sort_array(arr, length);
 
 	printf("\nmedian: \t%d\n", find_median(arr, length));
@@ -60,11 +62,13 @@ void print_statistics(unsigned char arr[], unsigned int length){
 	printf("maximum:\t%d\n", find_maximum(arr, length));
 	
 	printf("minimum:\t%d\n", find_minimum(arr, length));	
+
 	#endif
 }
 
 void print_array(unsigned char arr[], unsigned int length){
 #ifdef VERBOSE
+
 	printf("\n");
 	for(int i = 0; i < length; i++){
     	printf("%d -\t(%x)\n",i,arr[i]);
