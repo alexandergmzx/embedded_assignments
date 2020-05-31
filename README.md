@@ -1,7 +1,5 @@
 # Assigments solved with the course
 
-==========================================
-
 This repository compiles all the work done and the knowledge learned from Alex Fosdick, ECE professor from the University of Colorado Boulder
 
 ## Week 1
