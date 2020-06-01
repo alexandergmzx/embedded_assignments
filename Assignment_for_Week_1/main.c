@@ -6,6 +6,11 @@
  * @author Alexander Gomez
  *
  * @date 2020-April-25
+ * 
+ * MIT License
+ *
+ * Copyright (c) 2020 J. Alexander Gómez G.
+ *
  */
 
 /* Data Set array */

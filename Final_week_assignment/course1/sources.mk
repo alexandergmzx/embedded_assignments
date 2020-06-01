@@ -6,7 +6,9 @@
 # permitted to modify this and use it to learn about the field of embedded
 # software. Alex Fosdick and the University of Colorado are not liable for any
 # misuse of this material. 
+# MIT License
 #
+# Copyright (c) 2020 J. Alexander Gómez G.
 #*****************************************************************************
 
 # Source files defined based on the Platform.    

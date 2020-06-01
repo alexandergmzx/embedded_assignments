@@ -19,6 +19,11 @@
  * @author Alex Fosdick & Alexander Gómez
  * @date April 1 2017
  *
+ * 
+ * MIT License
+ *
+ * Copyright (c) 2020 J. Alexander Gómez G.
+ * 
  */
 #include <stdlib.h>
 #include "memory.h"

@@ -1,6 +1,8 @@
 # Assignment for Week 1: _Embedded System Development Components_
 
-@author Alexander Gómez
+MIT License
+
+Copyright (c) 2020 J. Alexander Gómez G.
 
 @date 2019-December-16
 

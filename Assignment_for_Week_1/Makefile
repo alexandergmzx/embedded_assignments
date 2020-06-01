@@ -12,7 +12,9 @@
 #      build - Builds all object files in project (links as well)
 #      clean - Removes all generated files
 #
-# Author: alexandergmzx
+# MIT License
+#
+# Copyright (c) 2020 J. Alexander Gómez G.
 # Date:   January 13, 2019
 #
 #------------------------------------------------------------------------------

@@ -30,7 +30,9 @@
 # Example : make build PLATFORM=MSP432 		
 #			# This builds all the object files for the MSP432 
 #
-# @author	alexandergmzx
+# MIT License
+#
+# Copyright (c) 2020 J. Alexander Gómez G.
 # @date 	2020-December-26
 #
 ##############################################################################

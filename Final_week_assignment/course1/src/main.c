@@ -6,6 +6,11 @@
  * @author	Alexander Gomez
  *
  * @date	2020-May-1
+ * 
+ * MIT License
+ *
+ * Copyright (c) 2020 J. Alexander Gómez G.
+ * 
  */
 
 #include <stdio.h>

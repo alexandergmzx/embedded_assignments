@@ -8,6 +8,11 @@
  * @author	alexandergmzx
  *
  * @date	2020-Apr-29
+ * 
+ * MIT License
+ *
+ * Copyright (c) 2020 J. Alexander Gómez G.
+ * 
  */
 
 #ifndef __DATA_H__

@@ -18,6 +18,11 @@
  * @author Alex Fosdick & Alexander Gómez
  * @date April 1 2017
  *
+ * 
+ * MIT License
+ *
+ * Copyright (c) 2020 J. Alexander Gómez G.
+ * 
  */
 #ifndef __MEMORY_H__
 #define __MEMORY_H__

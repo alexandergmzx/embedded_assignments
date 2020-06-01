@@ -21,6 +21,11 @@
  * @author	Alexander Gomez
  *
  * @date	2020-Jan-3
+ * 
+ * MIT License
+ *
+ * Copyright (c) 2020 J. Alexander Gómez G.
+ * 
  */
 
 

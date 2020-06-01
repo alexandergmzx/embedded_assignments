@@ -1,6 +1,8 @@
 # Assignment for Week 4: _Final assessment_
 
-@author Alexander Gómez
+MIT License
+
+Copyright (c) 2020 J. Alexander Gómez G.
 
 @date 2020-January-20
 

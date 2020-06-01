@@ -18,6 +18,11 @@
  * @author	alexandergmzx
  *
  * @date	2020-Jan-3
+ * 
+ * MIT License
+ *
+ * Copyright (c) 2020 J. Alexander Gómez G.
+ * 
  */
 #ifndef __STATS_H__
 #define __STATS_H__

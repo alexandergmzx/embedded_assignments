@@ -1,6 +1,8 @@
 # Assignment for Week 3: _Memory Types, Segments and Management_
 
-@author Alexander Gómez
+MIT License
+
+Copyright (c) 2020 J. Alexander Gómez G.
 
 @date 2019-January-7
 

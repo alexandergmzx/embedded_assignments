@@ -31,7 +31,9 @@
 #			# This builds all the object files for the MSP432, 
 			#	activates the course1() function and prints the debug messages. 
 #
-# @author	Alexander Gómez
+# MIT License
+#
+# Copyright (c) 2020 J. Alexander Gómez G.
 # @date 	2020-May-1
 #
 ##############################################################################

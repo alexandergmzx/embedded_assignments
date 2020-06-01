@@ -3,6 +3,10 @@
 This repository compiles all the work done and the knowledge learned from Alex Fosdick, ECE professor from the University of Colorado Boulder. 
 Also it is now protected by a **License** so nobody can just copy the codes as they are.
 
+MIT License
+
+Copyright (c) 2020 J. Alexander Gómez G.
+
 ## Week 1
 The work done for week 1 (module 1: **Embedded System Development Components**) can be found in the "Assignment\_for_Week_1" folder. This assignment is about learning:
 
