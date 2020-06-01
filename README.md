@@ -1,6 +1,7 @@
 # Assigments solved with the course
 
-This repository compiles all the work done and the knowledge learned from Alex Fosdick, ECE professor from the University of Colorado Boulder
+This repository compiles all the work done and the knowledge learned from Alex Fosdick, ECE professor from the University of Colorado Boulder. 
+Also it is now protected by a **License** so nobody can be copying the codes as they are.
 
 ## Week 1
 The work done for week 1 (module 1: **Embedded System Development Components**) can be found in the "Assignment\_for_Week_1" folder. This assignment is about learning:
