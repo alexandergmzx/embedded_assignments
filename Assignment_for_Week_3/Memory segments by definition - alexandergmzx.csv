@@ -1,0 +1,19 @@
+Variable,Segment,Sub-Segment,Permissions,Lifetime,Memory address,Location in code,Variable Definition,Explanation
+g1,Data,BSS,RW,Program,2000088c,main,static int g1;,Global variable with no value assigned
+g2,Code,Const,Read,Program,1518,main,const int g2 = 45;,Const keyword
+g3,Data,Data,RW,Program,20000004,main,char g3 = 12;,Global variable with value
+g4,Data,BSS,RW,Program,20000890,main,char g4 = 0;,Global variable with no value assigned
+g5,Data,Data,RW,Program,20000008,misc,extern char g5[N];,Global variable with value
+l1,Register,None,RW,Function/Block,execution relative,main,register int l1;,Register keyword
+l2,Data,Stack,RW,Function/Block,execution relative,main,int * l2;,Declaration of pointer
+*l2,Data,Heap,RW,Indefinite,execution relative,main,l2 = (int *) malloc( N*g2*sizeof(char) );,Pointing to dynamically allocated memory 
+l3,Data,Stack,RW,Function/Block,execution relative,main,volatile int l3 = 12;,Local variable
+f1,Data,Stack,RW,Function/Block,execution relative,misc,int func(int * f1){...,Local function variable
+f2,Data,BSS,RW,Program,20000894,misc,static int f2;,Static keyword with no value assigned
+f3,Data,Stack,RW,Function/Block,execution relative,misc,unsigned int f3 = 0;,Local function variable
+f4,Data,Stack,Read,Function/Block,execution relative,misc,"volatile char * f4 = ""Hello World!\n"";",Local function variable
+"""Hello World!""",Code,Const,Read,Program,execution relative,misc,code text string,code text string
+main(),Code,Text,Read,Program,0000020c,main,int main(...,Code text
+func(),Code,Text,Read,Program,000002a8,misc,int func(...,Code text
+SOME_VALUE,None,None,None,None,0,misc,#define SOME_VALUE (6),Preprocessor defines
+N,None,None,None,None,0,misc.h,#define N (10U),Preprocessor defines

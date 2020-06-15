@@ -46,9 +46,11 @@ This **Makefile** can build 4 kinds of files:
 - **\<FILE>.o** - Builds a \<FILE>.o Object file
 
 Example - This dumps the Assembly code of memory.c for the MSP432:
+
 ```
 make memory.asm PLATFORM=MSP432
 ```
+
 Other Targets:
 
 - **compile-all** - Compiles all source files in project, but does not link.
@@ -56,11 +58,13 @@ Other Targets:
 - **clean** - Removes all generated files
 
 Example - Make the output file, try it in the unix computer then remove the generated files (The platform is not specified because the host is the default platform):
+
 ```
 make build
 ./c1m2.out
 make clean
 ```
+
 ## References for this part of the course
 
 Some References checked for this assignment:
@@ -69,4 +73,3 @@ Some References checked for this assignment:
 - [GNU Make book through examples](https://makefiletutorial.com/)
 - [Cheat Sheet by bavo.van.achte](https://cheatography.com/bavo-van-achte/cheat-sheets/gnumake/)
 - [Cheat Sheet by eduardo lezcano](http://eduardolezcano.com/wp-content/uploads/2016/06/make_cheatsheet.pdf)
-
